@@ -16,8 +16,7 @@ export default function SignUpComponent() {
 
   const [mainPasswordEye, setMainPasswordEye] = useState<boolean>(false);
   const [confirmPasswordEye, setConfirmPasswordEye] = useState<boolean>(false);
-  const [isPasswordMissmatched, setIsPasswordMissmatched] =
-    useState<boolean>(false);
+  const [isPasswordMissmatched, setIsPasswordMissmatched] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [msg, setMsg] = useState<string>("");
 
