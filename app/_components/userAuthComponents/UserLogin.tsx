@@ -3,7 +3,9 @@
 import React, { FormEvent, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 
-export default function UserLogin() {
+export default function UserLogin(
+  { setIsLogin } : { setIsLogin: (val: boolean) => void }
+) {
 
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -20,7 +22,7 @@ export default function UserLogin() {
           type="email"
           className="border rounded mt-5 pl-4 py-2 text-xl w-70"
           placeholder="Email"
-          name="restEmail"
+          name="userEmail"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required={true}
@@ -29,7 +31,7 @@ export default function UserLogin() {
         <div className="password-group flex mt-5 w-70">
           <input
             type={mainPasswordEye ? "text" : "password"}
-            className="border border-r-0 rounded rounded-r-none pl-4 h-11 text-xl focus:outline-none "
+            className="w-60 border border-r-0 rounded rounded-r-none pl-4 h-11 text-xl focus:outline-none "
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -55,6 +57,8 @@ export default function UserLogin() {
           onClick={() => {}}
         />
         <span className="mt-5 text-red-600">{msg}</span>
+
+        <p>Don't have an account? <span className="ml-5 text-blue-500 cursor-pointer" onClick={e => setIsLogin(false)}>Sign Up</span></p>
 
       </form>
     </div>
