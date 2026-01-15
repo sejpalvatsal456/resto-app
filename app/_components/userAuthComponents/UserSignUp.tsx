@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from 'next/navigation';
 import React, { FormEvent, useEffect, useState } from 'react'
 import { FaEye, FaEyeSlash } from 'react-icons/fa6';
 
@@ -20,6 +21,7 @@ export default function UserSignUp(
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [isPasswordMissmatched, setIsPasswordMissmatched] = useState<boolean>(false);
     const [msg, setMsg] = useState<string>("");
+    const router = useRouter();
 
     const handleSubmit = async(e: FormEvent) => {
 
@@ -49,7 +51,7 @@ export default function UserSignUp(
         }
 
         setIsLoading(false);
-        alert(data.data);
+        router.push("/");
 
     }
 

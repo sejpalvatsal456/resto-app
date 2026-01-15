@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import React, { FormEvent, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 
@@ -13,6 +14,36 @@ export default function UserLogin(
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [msg, setMsg] = useState<string>("");
+  const router = useRouter();
+
+  const handleSubmit = async(e:FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setMsg("");
+
+    if (email === "" || password === "") {
+      setMsg("Fill all fields.");
+      setIsLoading(false);
+      return;
+    }
+
+    const res = await fetch("/api/user/login", {
+      method: 'POST',
+      headers: { "Content-Type" : "application/json" },
+      body: JSON.stringify({ email: email, password: password })
+    });
+
+    const data = await res.json();
+
+    if(!res.ok) {
+      setMsg(data.msg);
+      setIsLoading(false);
+      return;
+    }
+
+    setIsLoading(false);
+    router.push("/");
+  }
 
   return (
     <div>
@@ -54,7 +85,7 @@ export default function UserLogin(
           type="submit"
           value="Login"
           disabled={isLoading}
-          onClick={() => {}}
+          onClick={handleSubmit}
         />
         <span className="mt-5 text-red-600">{msg}</span>
 
