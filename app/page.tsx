@@ -1,10 +1,17 @@
 "use client";
 
+import NavBar from "./_components/NavBar";
+
+const navLinksData = [
+  { name: "South Indian", tag: "south_indian" },
+  { name: "Gujarati", tag: "gujarati" }
+]
+
 export default function Home() {
 
   return (
     <>
-      <h1>Welcome Page</h1>
+      <NavBar navLinksData={navLinksData} activePage="home" />
     </>
   );
 }
