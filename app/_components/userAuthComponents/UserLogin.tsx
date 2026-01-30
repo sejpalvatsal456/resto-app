@@ -10,7 +10,7 @@ export default function UserLogin(
 
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [mainPasswordEye, setMainPasswordEye] = useState<boolean>(true);
+  const [mainPasswordEye, setMainPasswordEye] = useState<boolean>(false);
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [msg, setMsg] = useState<string>("");

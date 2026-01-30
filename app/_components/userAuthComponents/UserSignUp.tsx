@@ -12,8 +12,8 @@ export default function UserSignUp(
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [confirmPassword, setConfirmPassword] = useState<string>("");
-    const [mainPasswordEye, setMainPasswordEye] = useState<boolean>(true);
-    const [confirmPasswordEye, setConfirmPasswordEye] = useState<boolean>(true);
+    const [mainPasswordEye, setMainPasswordEye] = useState<boolean>(false);
+    const [confirmPasswordEye, setConfirmPasswordEye] = useState<boolean>(false);
     const [city, setCity] = useState<string>("");
     const [address, setAddress] = useState<string>("");
     const [contact, setContact] = useState<number>(NaN);
