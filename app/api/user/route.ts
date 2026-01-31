@@ -3,7 +3,7 @@ import { User } from "@/app/db/models";
 import { NextRequest, NextResponse } from "next/server";
 import bycrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import { setCookies } from "@/libs/setCookies";
+import { setCookies } from "@/libs/cookies";
 
 const JWT_SECRET = process.env.JWT_SECRET as string;
 

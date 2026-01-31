@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getCookies } from "./libs/getCookies";
 import { jwtVerify } from "jose";
-import { deleteCookies } from "./libs/deleteCookies";
+import { getCookies, deleteCookies } from "./libs/cookies";
 
 const JWT_SECRET = new TextEncoder().encode(process.env.JWT_SECRET);
 

@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { CiSearch } from 'react-icons/ci';
 import { FaRegUser } from 'react-icons/fa6';
 
@@ -12,12 +12,28 @@ export default function NavBar(
 
   const [searchText, setSearchText] = useState<string>("");
 
+  useEffect(() => {
+
+    const filter = "all";
+
+    fetch(`/api/user/items?filter=${filter}`, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include"
+    })
+    .then(res =>  res.json())
+    .then(data => {
+      console.log(data);
+    })
+    .catch(err => console.log(err));
+  }, []);
+
   const navLinksEl = navLinksData.map((navLink, key) => {
     return (
       <li
         key={key}
         className={
-          "w-auto h-10 text-center cursor-pointer hover:underline " +
+          "w-auto h-10 flex items-center text-center cursor-pointer hover:underline " +
           (activePage === navLink.tag ? "underline" : "")
         }
       >

@@ -3,7 +3,7 @@ import { Restaurant } from "@/app/db/models";
 import { NextRequest, NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
-import { setCookies } from "@/libs/setCookies";
+import { setCookies } from "@/libs/cookies";
 
 const JWT_SECRET = process.env.JWT_SECRET as string;
 

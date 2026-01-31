@@ -2,7 +2,7 @@
 
 import { connectDB } from "@/app/db/db";
 import { Item } from "@/app/db/models";
-import { getCookies } from "@/libs/getCookies";
+import { getCookies } from "@/libs/cookies";
 import { jwtVerify } from "jose";
 import { NextRequest, NextResponse } from "next/server";
 

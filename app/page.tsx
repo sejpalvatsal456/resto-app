@@ -4,7 +4,8 @@ import NavBar from "./_components/NavBar";
 
 const navLinksData = [
   { name: "South Indian", tag: "south_indian" },
-  { name: "Gujarati", tag: "gujarati" }
+  { name: "Gujarati", tag: "gujarati" },
+  { name: "Punjabi", tag: "punjabi" }
 ]
 
 export default function Home() {
